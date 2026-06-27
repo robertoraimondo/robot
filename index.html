@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Lee Robot Companion</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <main class="app">
+      <section class="stage" aria-label="Animated robot">
+        <div class="ambient-grid"></div>
+
+        <div id="threeStage" class="three-stage" aria-label="3D Lee avatar"></div>
+        <div id="robot" class="robot mood-calm motion-idle" aria-live="polite">
+          <div class="halo"></div>
+          <div class="portrait-shell">
+            <div class="portrait face-frame frame-1 active" aria-hidden="true"></div>
+            <div class="portrait face-frame frame-2" aria-hidden="true"></div>
+            <div class="portrait face-frame frame-3" aria-hidden="true"></div>
+            <div class="portrait face-frame frame-4" aria-hidden="true"></div>
+            <div class="portrait face-frame frame-5" aria-hidden="true"></div>
+            <video id="talkingPortrait" class="portrait portrait-video" src="animate-her-lips.mp4?v=2" poster="assets/aiva-smiling-portrait.png" loop preload="auto" aria-hidden="true"></video>
+            <video id="smilePortrait" class="portrait portrait-video" src="animate-her-lips.mp4?v=2" poster="assets/aiva-smiling-portrait.png" muted loop preload="auto" aria-hidden="true"></video>
+            <video id="answerPortrait" class="portrait portrait-video" src="animate-her-lips.mp4?v=2" poster="assets/aiva-smiling-portrait.png" muted loop preload="auto" aria-hidden="true"></video>
+            <div class="portrait-glow"></div>
+            <div class="voice-ring"></div>
+            <div class="scan-line"></div>
+            <div class="lip-sync portrait-mouth"></div>
+          </div>
+          <div class="full-body-shell">
+            <video id="danceVideo" class="full-body dance-video" src="walking-forward-with-natural-arm-and-leg.mp4" muted loop preload="auto" aria-hidden="true"></video>
+            <audio id="danceMusic" src="dance-music.mp3" loop preload="auto" aria-hidden="true"></audio>
+            <img class="full-body dance-frame frame-1" src="assets/aiva-full-body-dance.png" alt="Lee full body dance mode">
+            <img class="full-body dance-frame frame-2" src="assets/aiva-dance-frame-2.png" alt="">
+            <img class="full-body dance-frame frame-3" src="assets/aiva-dance-frame-3.png" alt="">
+            <div class="dance-light"></div>
+            <div class="lip-sync full-body-mouth"></div>
+          </div>
+          <div class="state-shell sit-shell">
+            <img class="state-image" src="Generated image 1.png" alt="Lee sitting pose">
+          </div>
+          <div class="state-shell walk-shell">
+            <video id="walkVideo" class="state-image walk-video" src="animate-to-walking.mp4" muted loop preload="auto" aria-hidden="true"></video>
+            <img class="state-image walk-frame walk-a" src="Generated image 2.png" alt="Lee move frame front">
+            <img class="state-image walk-frame walk-b" src="Generated image 4.png" alt="Lee move frame mid">
+            <img class="state-image walk-frame walk-c" src="Generated image 6.png" alt="Lee move frame back">
+          </div>
+          <div class="state-shell outfit-shell">
+            <img class="state-image" src="Generated image 3.png" alt="Lee wearing a professional skirt outfit">
+          </div>
+          <div class="state-shell short-skirt-shell">
+            <img class="state-image" src="assets/aiva-short-skirt.png" alt="Lee wearing a professional short skirt outfit">
+          </div>
+          <div class="state-shell turn-shell">
+            <img class="state-image turn-frame turn-1" src="Generated image 2.png" alt="Lee turn frame front">
+            <img class="state-image turn-frame turn-2" src="Generated image 4.png" alt="Lee turn frame mid">
+            <img class="state-image turn-frame turn-3" src="Generated image 6.png" alt="Lee turn frame back">
+          </div>
+          <div class="state-shell back-shell">
+            <img class="state-image" src="assets/aiva-back-view.png" alt="Lee full body back view">
+          </div>
+          <div class="shadow"></div>
+        </div>
+      </section>
+
+      <section class="console" aria-label="Robot commands">
+        <div class="status-strip" aria-label="Lee status">
+          <span id="modeBadge">ONLINE</span>
+          <span id="moodBadge">CALM</span>
+          <span id="motionBadge">IDLE</span>
+        </div>
+
+        <div class="identity">
+          <p class="label">Lee Command Core</p>
+          <h1>Android Assistant</h1>
+          <p id="robotReply">Hello. I am Lee. I can animate, listen, and control approved desktop apps through my local command bridge.</p>
+        </div>
+
+        <form id="nameForm" class="name-form">
+          <label for="nameInput">Your name</label>
+          <div class="input-row">
+            <input id="nameInput" name="name" autocomplete="name" placeholder="Tell Lee your name">
+            <button type="submit">Save</button>
+          </div>
+        </form>
+
+        <form id="commandForm" class="command-form">
+          <label for="commandInput">Command</label>
+          <div class="input-row">
+            <input id="commandInput" name="command" autocomplete="off" placeholder="Voice: Hey Lee dance. Type: dance, search web, check emails">
+            <button type="submit">Run</button>
+            <button id="listenBtn" type="button" title="Start voice command listening">Start Mic</button>
+          </div>
+        </form>
+
+        <div class="quick-actions" aria-label="Quick commands">
+          <button type="button" data-command="dance">Dance</button>
+          <button type="button" data-command="walk">Walk</button>
+          <button type="button" data-command="sit">Sit</button>
+          <button type="button" data-command="move">Move</button>
+          <button type="button" data-command="change your outfit">Outfit</button>
+          <button id="stopBtn" class="danger" type="button">Stop</button>
+          <button type="button" data-command="check my emails">Email</button>
+          <button type="button" data-command="search">Search</button>
+        </div>
+
+      </section>
+    </main>
+
+    <script type="module" src="aiva3d.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
