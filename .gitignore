@@ -1,0 +1,11 @@
+# Python cache
+__pycache__/
+*.py[cod]
+
+# Runtime logs
+*.log
+server.err.log
+server.out.log
+
+# Local editor settings
+.vscode/
