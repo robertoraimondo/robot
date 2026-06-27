@@ -1,4 +1,4 @@
-# Robot Assistant (Lee / AIVA)
+# Robot Assistant Lee
 
 ![AIVA](aiva5.jpg)
 
